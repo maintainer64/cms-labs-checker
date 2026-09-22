@@ -1,5 +1,9 @@
 # CMS Labs checker
 
+[![CI](https://github.com/maintainer64/cms-labs-checker/actions/workflows/ci.yml/badge.svg)](https://github.com/maintainer64/cms-labs-checker/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/maintainer64/cms-labs-checker/actions/workflows/codeql.yml/badge.svg)](https://github.com/maintainer64/cms-labs-checker/actions/workflows/codeql.yml)
+[![Container image](https://github.com/maintainer64/cms-labs-checker/actions/workflows/images.yml/badge.svg)](https://github.com/maintainer64/cms-labs-checker/actions/workflows/images.yml)
+
 Standalone checker image for Kubernetes laboratory sessions managed by Clabgate.
 The platform lives in `cms-labs-api`; this repository owns laboratory-specific
 checks and their unit tests.
@@ -97,3 +101,12 @@ Build the same container used by Clabgate:
 ```bash
 docker build -t ghcr.io/maintainer64/cms-labs-checker:local .
 ```
+
+## CI and releases
+
+Pull requests run formatting, golangci-lint, race-enabled unit tests, CLI contract
+smoke, Docker build/smoke, CodeQL and dependency review. Coverage is retained as
+a workflow artifact. Pushes to `main` publish `main`, `sha-*` and `latest` tags
+to `ghcr.io/maintainer64/cms-labs-checker`; a Git tag such as `v1.2.3` also
+publishes the matching container tag. Published images include BuildKit
+provenance and SBOM attestations.
