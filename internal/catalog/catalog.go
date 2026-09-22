@@ -1,0 +1,15 @@
+package catalog
+
+import (
+	"github.com/maintainer64/cms-labs-checker/checker"
+	"github.com/maintainer64/cms-labs-checker/labs/smoke"
+)
+
+// New is the compile-time catalog. A new laboratory owns a package under labs/
+// and is registered here. This keeps builds static and portable while allowing
+// every lab to have isolated implementation and unit tests.
+func New() (*checker.Registry, error) {
+	return checker.NewRegistry(
+		smoke.New(),
+	)
+}
