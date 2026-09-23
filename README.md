@@ -21,6 +21,7 @@ keeping one small static executable and one auditable image.
 ```text
 checker/             stable Result/Task/Log model, LabChecker interface, registry
 labs/smoke/          one laboratory implementation and its checker_test.go
+labs/sdnlab5/        runnable SDN_Lab_5 example checks
 internal/catalog/    explicit list of packages included in the image
 cmd/checker/         Kubernetes/CLI entry point
 ```

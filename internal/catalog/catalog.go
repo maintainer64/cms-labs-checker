@@ -2,6 +2,7 @@ package catalog
 
 import (
 	"github.com/maintainer64/cms-labs-checker/checker"
+	"github.com/maintainer64/cms-labs-checker/labs/sdnlab5"
 	"github.com/maintainer64/cms-labs-checker/labs/smoke"
 )
 
@@ -10,6 +11,7 @@ import (
 // every lab to have isolated implementation and unit tests.
 func New() (*checker.Registry, error) {
 	return checker.NewRegistry(
+		sdnlab5.New(),
 		smoke.New(),
 	)
 }
